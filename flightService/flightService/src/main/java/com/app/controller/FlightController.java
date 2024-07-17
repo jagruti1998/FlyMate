@@ -5,7 +5,6 @@ import com.app.model.FlightRequest;
 import com.app.model.FlightResponse;
 import com.app.service.FlightService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +33,7 @@ public class FlightController {
         return new ResponseEntity<>(flightService.getAllFlights(),HttpStatus.OK);
     }
 
-    @GetMapping("/{id")
+    @GetMapping("/{id}")
     public FlightResponse getAFlightByNumber(@PathVariable("id") String flightNumber){
         return flightService.getFlightByNumber(flightNumber);
     }
