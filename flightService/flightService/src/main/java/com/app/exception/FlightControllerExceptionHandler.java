@@ -17,7 +17,17 @@ public class FlightControllerExceptionHandler extends ResponseEntityExceptionHan
         return new ResponseEntity<>(ErrorResponse.builder()
                 .errorCode(exception.getErrorCode())
                 .errorMessage(exception.getMessage())
-                .build(),HttpStatus.NOT_FOUND);
+                .build(), HttpStatus.NOT_FOUND);
+    }
+
+    //handle generic exceptions
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponse> genericExceptionHandler(Exception exception) {
+
+        return new ResponseEntity<>(ErrorResponse.builder()
+                .errorCode(HttpStatus.INTERNAL_SERVER_ERROR.toString())
+                .errorMessage(exception.getMessage())
+                .build(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
 }
