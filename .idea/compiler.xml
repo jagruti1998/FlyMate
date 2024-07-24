@@ -8,12 +8,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="flightService" />
+        <module name="bookingService" />
         <module name="flightSearchService" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="bookingService" options="-parameters" />
       <module name="flightSearchService" options="-parameters" />
       <module name="flightService" options="-parameters" />
     </option>
